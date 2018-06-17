@@ -27,15 +27,15 @@ def kMeans(dataSet, k, distMeas=distEclud, create_Cent=randCent):
             minIndex = -1
             for j in range(k):
                 distJI = distMeas(centroids[j, :], dataSet[i, :])
-                print("node ", i, " cluster ", j, " dis ", distJI)
+                # print("node ", i, " cluster ", j, " dis ", distJI)
                 if distJI < minDist:
                     minDist = distJI
                     minIndex = j
             if clusterAssment[i, 0] != minIndex:
                 clusterChanged = True
-                print("node ", i, "is in cluster", minIndex)
+                # print("node ", i, "is in cluster", minIndex)
             clusterAssment[i, :] = minIndex, minDist ** 2
-        print("LOG:", centroids)
+        # print("LOG:", centroids)
         for cent in range(k):
             ptsInClust = dataSet[nonzero(clusterAssment[:, 0].A == cent)[0]]
             if len(ptsInClust) > 0:
@@ -46,7 +46,6 @@ def kMeans(dataSet, k, distMeas=distEclud, create_Cent=randCent):
 def biKmeans(dataSet, k, disMeas=distEclud):
     m = shape(dataSet)[0]
     clusterAssment = mat(zeros((m, 2)))
-
     # initially create one cluster
     centroid0 = mean(dataSet, axis=0).tolist()[0]
     centList = [centroid0]

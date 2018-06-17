@@ -38,9 +38,8 @@ def LowDimProject(data, projector=manifold.t_sne.TSNE()):
     return projector.fit_transform(data)
 
 
-def
-
-for cent in range(k):
-    one = ans[nonzero(clusterAssment[:, 0].A == cent)[0]]
-    plt.scatter(one[:, 0], one[:, 1])
-plt.scatter(ans[:])
+def Plot(data, label):
+    for cent in range(len(pd.value_counts(label))):
+        one = data[label[label == 1].index]
+        plt.scatter(one[:, 0], one[:, 1])
+    plt.show()
